@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+
+$primary-font: "Playfair Display", serif;
+
+.featured-brands-section {
+  padding: 80px 30px;
+  background-color: #ffffff;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  .section-header {
+    margin-bottom: 50px;
+
+    .section-title {
+      font-family: $primary-font;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #222;
+    }
+  }
+
+
+  .brands-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    gap: 40px 40px;
+
+    width: 100%;
+  }
+
+
+  .brand-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    flex: 0 1 auto;
+
+    .brand-logo {
+      height: 78px;
+      width: auto;
+
+
+      max-width: 140px;
+
+      object-fit: contain;
+
+      filter: grayscale(100%) opacity(0.6);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.1);
+      }
+    }
+  }
+
+
+  @media (max-width: 1024px) {
+    padding: 60px 20px;
+    .brands-container {
+      gap: 30px 25px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 50px 15px;
+
+    .brands-container {
+      gap: 30px 20px;
+    }
+
+    .brand-logo {
+      height: 28px;
+      max-width: 110px;
+    }
+
+
+    .brand-item {
+      flex: 0 1 calc(33% - 15px);
+    }
+  }
+}

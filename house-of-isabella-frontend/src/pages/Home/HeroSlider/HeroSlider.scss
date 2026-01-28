@@ -1,0 +1,216 @@
+@import "../../../styles/variables";
+
+$lux-gold: #cfa76e;
+$lux-white: #ffffff;
+$lux-black: #1a1a1a;
+
+.hero-slider {
+  width: 100%;
+  height: calc(100vh - 122px);
+  min-height: 650px;
+  position: relative;
+  background-color: $lux-black;
+
+  .hero-swiper {
+    width: 100%;
+    height: 100%;
+
+    .swiper-slide {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+
+      .media-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        .bg-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .bg-image {
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-position: center;
+          transform: scale(1);
+          transition: transform 8s ease;
+        }
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1;
+      }
+
+      .text-wrapper {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        padding: 0 40px;
+        pointer-events: none;
+
+        &.center {
+          left: 50%;
+          bottom: 100px;
+          transform: translateX(-50%);
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        &.left {
+          top: 50%;
+          left: 8%;
+          transform: translateY(-50%);
+          text-align: left;
+          align-items: flex-start;
+        }
+      }
+
+      .text-box {
+        pointer-events: auto;
+        max-width: 800px;
+        color: $lux-white;
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+
+        .subtitle {
+          display: block;
+          font-family: "Jost", sans-serif;
+          font-size: 13px;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          font-weight: 600;
+          margin-bottom: 20px;
+          color: rgba(255, 255, 255, 0.9);
+        }
+        .title {
+          font-family: "Playfair Display", serif;
+          font-size: 75px;
+          font-weight: 400;
+          line-height: 1.1;
+          margin-bottom: 30px;
+          text-transform: uppercase;
+          @media (max-width: 992px) {
+            font-size: 50px;
+          }
+        }
+        .description {
+          font-family: "Jost", sans-serif;
+          font-size: 18px;
+          font-weight: 300;
+          margin-bottom: 45px;
+          opacity: 0.95;
+          letter-spacing: 0.5px;
+          line-height: 1.6;
+          max-width: 600px;
+        }
+        .hero-btn {
+          display: inline-block;
+          padding: 18px 50px;
+          background-color: transparent;
+          border: 1px solid $lux-white;
+          color: $lux-white;
+          font-family: "Jost", sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 3px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          &:hover {
+            background-color: $lux-white;
+            color: $lux-black;
+          }
+        }
+      }
+
+      &-active {
+        .bg-image {
+          transform: scale(1.1);
+        }
+        .text-box {
+          opacity: 1;
+          transform: translateY(0);
+          transition-delay: 0.2s;
+        }
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 60px; 
+      height: 60px;
+      color: $lux-white;
+      background: transparent;
+      transition: all 0.3s ease;
+      opacity: 0.7;
+
+      &::after {
+        display: none;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px; 
+        height: 20px;
+        border-top: 1px solid $lux-white;
+        border-right: 1px solid $lux-white; 
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        opacity: 1; 
+        &::before {
+          width: 22px;
+          height: 22px; 
+        }
+      }
+    }
+
+    
+    .swiper-button-prev {
+      left: 30px;
+      &::before {
+        transform: translate(-55%, -50%) rotate(-135deg); 
+      }
+    }
+
+
+    .swiper-button-next {
+      right: 30px; 
+      &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: transparent;
+      border: 1px solid $lux-white;
+      opacity: 0.6;
+      margin: 0 10px !important;
+      &-active {
+        background: $lux-white;
+        opacity: 1;
+      }
+    }
+  }
+}

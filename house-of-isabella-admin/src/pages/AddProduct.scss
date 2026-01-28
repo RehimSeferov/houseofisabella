@@ -1,0 +1,83 @@
+
+
+$primary-color: #cfa76e; 
+$text-color: #333;
+$border-color: #ddd;
+
+.add-product-page {
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: "Times New Roman", serif;
+    font-size: 28px;
+    color: $text-color;
+    margin-bottom: 25px;
+  }
+
+  .product-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    .form-group {
+      margin-bottom: 20px;
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #555;
+        font-size: 14px;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        font-size: 15px;
+        outline: none;
+        transition: border-color 0.3s;
+        font-family: sans-serif;
+
+        &:focus {
+          border-color: $primary-color;
+        }
+      }
+
+      textarea {
+        resize: vertical; 
+        min-height: 100px;
+      }
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      .form-group {
+        flex: 1; 
+      }
+    }
+
+    .submit-btn {
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      padding: 14px 30px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+}

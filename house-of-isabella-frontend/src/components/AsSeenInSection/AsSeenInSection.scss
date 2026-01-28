@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+
+$primary-font: "Playfair Display", serif;
+$secondary-font: "Lato", sans-serif;
+
+.as-seen-in-section {
+  width: 100%;
+  max-width: 100%;
+  padding: 50px 0;
+  background-color: #ffffff;
+  overflow: hidden;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+  align-items: center;
+  min-height: 120px;
+
+  .logo-carousel {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 120px;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, #fff, transparent);
+    }
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, #fff, transparent);
+    }
+  }
+
+
+  .logo-track {
+    display: flex;
+    align-items: center;
+    animation: scroll 40s linear infinite;
+    gap: 80px;
+    width: max-content;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    .logo-image {
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+    }
+
+    .as-seen-text {
+      font-family: $primary-font;
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: #000;
+      font-weight: 400;
+      text-transform: uppercase;
+      margin: 0 40px;
+    }
+  }
+
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 30px 0;
+    min-height: 80px;
+
+    .logo-track {
+      gap: 40px;
+      animation-duration: 25s;
+    }
+
+    .logo-item .logo-image {
+      height: 18px; 
+    }
+
+    .logo-item .as-seen-text {
+      font-size: 16px;
+      margin: 0 20px;
+      letter-spacing: 2px;
+    }
+
+    .logo-carousel::before,
+    .logo-carousel::after {
+      width: 50px; 
+    }
+  }
+
+
+  @media (max-width: 320px) {
+    padding: 20px 0;
+
+    .logo-track {
+      gap: 25px;
+      animation-duration: 20s; 
+    }
+
+    .logo-item .logo-image {
+      height: 15px; 
+    }
+
+    .logo-item .as-seen-text {
+      font-size: 13px;
+      margin: 0 15px;
+      letter-spacing: 1.5px;
+    }
+
+    .logo-carousel::before,
+    .logo-carousel::after {
+      width: 30px; 
+    }
+  }
+}

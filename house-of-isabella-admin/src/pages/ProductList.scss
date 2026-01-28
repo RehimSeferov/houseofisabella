@@ -1,0 +1,125 @@
+
+
+$primary-color: #cfa76e;
+$text-dark: #333;
+$border-color: #eee;
+$bg-white: #fff;
+
+.product-list-page {
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+
+    h2 {
+      font-family: "Times New Roman", serif;
+      font-size: 28px;
+      color: $text-dark;
+      margin: 0;
+    }
+
+    .add-btn {
+      background-color: $primary-color;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  }
+
+  .table-container {
+    background: $bg-white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      thead {
+        background-color: #f8f9fa;
+        tr {
+          th {
+            text-align: left;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            border-bottom: 1px solid $border-color;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          border-bottom: 1px solid $border-color;
+          transition: background 0.2s;
+
+          &:hover {
+            background-color: #fdfdfd;
+          }
+
+          td {
+            padding: 15px 20px;
+            vertical-align: middle;
+            font-size: 14px;
+            color: $text-dark;
+
+            .product-img {
+              width: 50px;
+              height: 50px;
+              object-fit: cover;
+              border-radius: 4px;
+              border: 1px solid #eee;
+            }
+
+            .status-badge {
+              padding: 5px 10px;
+              border-radius: 20px;
+              font-size: 11px;
+              font-weight: 600;
+
+              &.in-stock {
+                background-color: #e8f5e9;
+                color: #2e7d32;
+              }
+              &.out-stock {
+                background-color: #ffebee;
+                color: #c62828;
+              }
+            }
+
+            .action-btn {
+              border: none;
+              background: none;
+              cursor: pointer;
+              font-size: 18px;
+              margin-right: 10px;
+              transition: color 0.2s;
+
+              &.edit {
+                color: #1976d2;
+              }
+              &.delete {
+                color: #d32f2f;
+              }
+
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

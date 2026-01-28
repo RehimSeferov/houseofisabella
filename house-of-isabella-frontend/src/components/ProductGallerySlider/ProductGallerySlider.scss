@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+.gallery-slider-section {
+  padding: 0 40px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden; 
+
+  .slider-wrapper {
+    overflow-x: scroll; 
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      9,
+      1fr
+    ); 
+    grid-template-rows: 1fr 1fr; 
+
+
+    grid-auto-columns: calc(100vw / 5);
+    grid-auto-flow: column; 
+    width: max-content; 
+    gap: 10px; 
+
+    padding-bottom: 20px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    scroll-snap-align: start;
+    cursor: pointer;
+
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    &:hover .gallery-image {
+      transform: scale(1.03);
+    }
+  }
+
+
+
+  .item-1 {
+    grid-area: 1 / 1;
+  }
+  .item-2 {
+    grid-area: 1 / 2;
+  }
+  .item-3 {
+    grid-area: 1 / 3;
+  }
+  .item-4 {
+    grid-area: 1 / 4;
+  }
+  .item-5 {
+    grid-area: 1 / 5;
+  }
+  .item-6 {
+    grid-area: 1 / 6;
+  } 
+
+  .item-7 {
+    grid-area: 2 / 2;
+  }
+  .item-8 {
+    grid-area: 2 / 3;
+  } 
+  .item-9 {
+    grid-area: 2 / 4;
+  }
+
+  .insta-overlay-static {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .overlay-text {
+      font-family: "Lato", sans-serif;
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+  }
+
+  .pagination-arrows {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 0 40px 0;
+
+    .arrow-btn {
+      background: none;
+      border: 1px solid #ccc;
+      color: #333;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      transition: background-color 0.3s, border-color 0.3s;
+
+      &:hover {
+        background-color: #333;
+        color: #fff;
+        border-color: #333;
+      }
+    }
+  }
+
+
+  @media (max-width: 900px) {
+    padding: 0 10px;
+
+    .gallery-grid {
+
+      grid-auto-columns: calc(100vw / 3);
+    }
+  }
+}

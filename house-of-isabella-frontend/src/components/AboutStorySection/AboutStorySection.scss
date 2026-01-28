@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap");
+
+$primary-font: "Playfair Display", serif;
+$secondary-font: "Lato", sans-serif;
+$beige-bg: #f9f3e9;
+$text-color: #333;
+
+.about-story-section {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background-color: $beige-bg;
+
+
+  .text-column {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // Desktop padding
+    padding: 13rem 100px;
+
+    .text-content-wrapper {
+      text-align: left;
+      width: 100%;
+    }
+
+    .story-title {
+      font-family: $primary-font;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #8c6b5d;
+      margin-bottom: 30px;
+      display: block;
+      line-height: 1.4;
+    }
+
+    .story-text {
+      font-family: $secondary-font;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #555;
+      font-weight: 300;
+
+      p {
+        margin-bottom: 25px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .image-column {
+    flex: 1;
+    position: relative;
+    display: flex;
+
+    .story-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+
+
+  @media (max-width: 1024px) {
+    .text-column {
+      padding: 80px 50px; 
+    }
+  }
+
+  // 2. Mobil (Standart - 768px)
+  @media (max-width: 768px) {
+    flex-direction: column; 
+
+    .text-column {
+      padding: 60px 30px;
+      order: 1; 
+    }
+
+    .image-column {
+      height: 400px;
+      order: 0; 
+    }
+  }
+
+ 
+  @media (max-width: 480px) {
+    .text-column {
+      padding: 40px 20px;
+    }
+
+    .image-column {
+      height: 300px; 
+    }
+
+    .story-title {
+      font-size: 18px; 
+      margin-bottom: 20px;
+    }
+
+    .story-text {
+      font-size: 16px; 
+    }
+  }
+
+  
+  @media (max-width: 320px) {
+    .text-column {
+  
+      padding: 30px 15px;
+    }
+
+    .image-column {
+    
+      height: 220px;
+    }
+
+    .story-title {
+      font-size: 16px;
+      letter-spacing: 1px; 
+    }
+
+    .story-text {
+      font-size: 14px; 
+      line-height: 1.6; 
+    }
+  }
+}
